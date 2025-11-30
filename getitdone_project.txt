@@ -1,0 +1,69 @@
+LINKEDIN PROJECT SECTION - GetItDone
+
+===========================================
+PROJECT NAME:
+GetItDone - Full-Stack Productivity Application
+
+PROJECT TIMEFRAME:
+[Insert your dates, e.g., "September 2024 - November 2024" or "September 2024 - Present"]
+
+PROJECT DESCRIPTION:
+Developed a modern web-based productivity platform that unifies task management and calendar scheduling into a single, elegant interface. Built with Django REST Framework and React/TypeScript, featuring AWS Cognito authentication, real-time updates, and a glassmorphic UI design. The application enables users to create tasks with natural language input, manage events, track time, and receive intelligent notifications across multiple channels.
+
+KEY ACCOMPLISHMENTS:
+• Architected and implemented RESTful API using Django REST Framework with 10+ endpoints for task, event, and notification management
+• Integrated AWS Cognito authentication with custom JWT validation middleware and automatic user synchronization
+• Designed normalized PostgreSQL database schema with 10 entities, implementing complex relationships including one-to-many, many-to-many, and optional foreign keys
+• Built responsive React frontend with TypeScript, custom hooks for state management, and reusable component architecture
+• Developed real-time notification system supporting multiple delivery channels (email, push, in-app) with user-configurable preferences
+• Implemented task-event linking feature enabling users to schedule dedicated time blocks for task completion
+• Created Docker Compose development environment with PostgreSQL and Redis for scalable deployment
+• Designed comprehensive user experience with multiple calendar views (day/week/month), priority-based task organization, and drag-and-drop interactions
+
+TECHNOLOGIES USED:
+Backend: Django 5.2, Django REST Framework, Python 3.14, PostgreSQL, Redis, AWS Cognito
+Frontend: React, TypeScript, Vite, AWS Amplify, Radix UI, Tailwind CSS
+Infrastructure: Docker, Docker Compose, JWT Authentication
+APIs: RESTful API design, WebSocket infrastructure for real-time updates
+
+SKILLS DEMONSTRATED:
+Full-Stack Development • RESTful API Design • Database Design & Normalization • AWS Cloud Services • Authentication & Security • React & TypeScript • State Management • Responsive UI/UX Design • Docker Containerization • Git Version Control
+
+===========================================
+
+ALTERNATIVE SHORTER VERSION (if space is limited):
+
+PROJECT NAME:
+GetItDone - Task Management & Calendar Application
+
+DESCRIPTION:
+Full-stack productivity web app combining task management with calendar scheduling. Built with Django REST Framework backend and React/TypeScript frontend, featuring AWS Cognito authentication, PostgreSQL database, and real-time notifications. Implements RESTful APIs, normalized database design with 10+ entities, and responsive glassmorphic UI with multiple calendar views.
+
+Technologies: Django • React • TypeScript • PostgreSQL • AWS Cognito • Docker • REST API • Tailwind CSS
+
+===========================================
+
+TIPS FOR YOUR LINKEDIN PROJECT SECTION:
+
+1. If you deployed the project, add the live URL in the "Project URL" field
+2. If this was a school project, select your university in "Associated with"
+3. Consider adding a link to your GitHub repository
+4. You can upload screenshots or a demo video in the media section
+5. Tag relevant team members if this was a collaborative project
+6. Use the skills tags feature to highlight: Python, Django, React, TypeScript, PostgreSQL, AWS, Docker, REST API, etc.
+
+OPTIONAL ADDITIONS:
+
+Project Highlights to mention in interviews:
+• "Implemented enterprise-grade authentication using AWS Cognito with custom JWT validation"
+• "Designed database schema following normalization principles with 10 interconnected entities"
+• "Built reusable React components and custom hooks for efficient state management"
+• "Created Docker containerized environment for consistent development and deployment"
+• "Integrated natural language processing for intuitive task creation"
+
+Metrics you could add (if applicable):
+• Number of API endpoints created
+• Database query optimization improvements
+• Code coverage percentage
+• Number of reusable components built
+• Lines of code written

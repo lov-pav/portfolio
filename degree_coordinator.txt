@@ -1,0 +1,10 @@
+Degree Coordinator
+Jan 2025 - Apr 2025Jan 2025 - Apr 2025
+The University of Texas Permian Basin logo
+Associated with The University of Texas Permian Basin
+Associated with The University of Texas Permian Basin
+Created a Degree Coordinator that allows students of University of Texas Permian Basin students to track which courses they need to take to meet graduation criteria. It allows students to track previous courses, current courses, grades, graduation eligiblity, and courses for the upcoming semester.
+The application was designed using Figma and leverages Auth0's external API to handle security and login functionality and has significant database integration through use of MySQL.
+The application supports user-role management, allowing students and administrators to login and make necessary changes.
+Created a Degree Coordinator that allows students of University of Texas Permian Basin students to track which courses they need to take to meet graduation criteria. It allows students to track previous courses, current courses, grades, graduation eligiblity, and courses for the upcoming semester. The application was designed using Figma and leverages Auth0's external API to handle security and login functionality and has significant database integration through use of MySQL. The application supports user-role management, allowing students and administrators to login and make necessary changes.
+Skills: Web Application Development · Software Development Life Cycle (SDLC) · Databases · PHP Applications · Software Project Management
