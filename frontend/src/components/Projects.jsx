@@ -42,6 +42,19 @@ function Projects({ setActiveColor }) {
     }
   }
 
+  const chatPlusImages = [
+    '/img/chatplusbot/room list.png',
+    '/img/chatplusbot/ai chat.png',
+    '/img/chatplusbot/no ai chat.png',
+    '/img/chatplusbot/ai chat context.png',
+    '/img/chatplusbot/room creation.png',
+    '/img/chatplusbot/room joining.png',
+    '/img/chatplusbot/room management.png',
+    '/img/chatplusbot/account menu.png',
+    '/img/chatplusbot/sign in.png',
+    '/img/chatplusbot/register.png',
+  ]
+
   const getItDoneImages = [
     '/img/getitdone/inbox page.png',
     '/img/getitdone/week view.png',
@@ -87,10 +100,165 @@ function Projects({ setActiveColor }) {
         </div>
       )}
 
+      {/* ChatPlusBot - Black/White Theme (Dropdown, first section) */}
+      <div
+        className={`transition-all duration-700 ease-in-out overflow-hidden rounded-2xl border animate-fade-in-up ${
+          isChatExpanded
+            ? 'bg-black/80 border-white/40 shadow-[0_0_40px_rgba(255,255,255,0.25)]'
+            : 'bg-white/5 border-white/10 hover:border-white/40'
+        }`}
+      >
+        <button
+          onClick={handleChatToggle}
+          className="w-full text-left p-8 flex justify-between items-center group"
+        >
+          <div>
+            <h3
+              className={`text-2xl font-bold transition-colors ${
+                isChatExpanded ? 'text-white' : 'text-white group-hover:text-gray-200'
+              }`}
+            >
+              ChatPlusBot
+            </h3>
+            <p className="text-gray-400 mt-2">
+              Real-time collaborative chat application with AI integration
+            </p>
+          </div>
+          <span
+            className={`transform transition-transform duration-500 text-2xl ${
+              isChatExpanded ? 'rotate-180 text-white' : 'text-gray-500 group-hover:text-gray-200'
+            }`}
+          >
+            ▼
+          </span>
+        </button>
+
+        <div
+          className={`transition-all duration-500 ease-in-out ${
+            isChatExpanded ? 'max-h-[3200px] opacity-100' : 'max-h-0 opacity-0'
+          }`}
+        >
+          <div className="p-8 pt-0 border-t border-white/15 text-gray-200 space-y-8">
+            {/* Image Gallery */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6 mt-6">
+              {chatPlusImages.map((img, i) => (
+                <div
+                  key={i}
+                  className="relative group overflow-hidden rounded-lg border border-white/15 aspect-video cursor-pointer"
+                  style={{ animationDelay: `${i * 100}ms` }}
+                  onClick={() => setSelectedImage(img)}
+                >
+                  <img
+                    src={img}
+                    alt={`ChatPlusBot screenshot ${i + 1}`}
+                    className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-tr from-black/60 via-transparent to-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <span className="text-white text-sm font-medium tracking-wider transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                      VIEW
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div>
+              <h4 className="text-lg font-semibold text-white mb-2">Project Overview</h4>
+              <p className="text-gray-300">
+                Real-time collaborative chat application with AI integration, designed for educational
+                institutions to facilitate student communication, study groups, and academic collaboration.
+              </p>
+            </div>
+
+            <div>
+              <h4 className="text-lg font-semibold text-white mb-2">Frontend Development</h4>
+              <ul className="list-disc list-inside space-y-1 text-gray-300">
+                <li>Built cross-platform mobile application using React Native and Expo (iOS, Android, Web).</li>
+                <li>Implemented file-based routing with Expo Router for navigation and deep linking.</li>
+                <li>Developed responsive UI with React Native Reanimated for smooth animations and gestures.</li>
+                <li>Integrated AWS Amplify and Cognito for authentication and user management.</li>
+                <li>Used Socket.IO client for real-time communication with automatic reconnection.</li>
+                <li>Managed global socket and authentication state with React Context API.</li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="text-lg font-semibold text-white mb-2">Backend Architecture</h4>
+              <ul className="list-disc list-inside space-y-1 text-gray-300">
+                <li>Designed RESTful API using Express.js v5 with TypeScript for type safety.</li>
+                <li>Built WebSocket server with Socket.IO for room-based real-time messaging.</li>
+                <li>Implemented microservices-ready architecture using RabbitMQ as a message broker.</li>
+                <li>Used Redis for caching and session management to improve performance.</li>
+                <li>Persisted data in PostgreSQL using Sequelize ORM with migrations.</li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="text-lg font-semibold text-white mb-2">Cloud Infrastructure & DevOps</h4>
+              <ul className="list-disc list-inside space-y-1 text-gray-300">
+                <li>Containerized services with Docker Compose for local development.</li>
+                <li>Integrated AWS S3 for media storage with presigned URLs for secure access.</li>
+                <li>Implemented AWS Cognito for authentication and environment-based configuration.</li>
+                <li>Automated database migrations and connection pooling for production deployments.</li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="text-lg font-semibold text-white mb-2">Security & Authentication</h4>
+              <ul className="list-disc list-inside space-y-1 text-gray-300">
+                <li>Implemented JWT-based authentication integrated with AWS Cognito.</li>
+                <li>Developed middleware for route protection and user authorization validation.</li>
+                <li>Secured WebSocket connections with token verification on connection.</li>
+                <li>Configured Helmet.js and CORS for hardened API security configuration.</li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="text-lg font-semibold text-white mb-2">AI Integration</h4>
+              <ul className="list-disc list-inside space-y-1 text-gray-300">
+                <li>Integrated Anthropic Claude and OpenAI GPT for flexible AI assistance.</li>
+                <li>Implemented AI-powered chatbot with conversation context management.</li>
+                <li>Added room-level AI toggle to enable or disable AI per chat room.</li>
+                <li>Designed AI response generation using message history for intelligent replies.</li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="text-lg font-semibold text-white mb-2">Real-Time & Media Features</h4>
+              <ul className="list-disc list-inside space-y-1 text-gray-300">
+                <li>Implemented real-time messaging with user presence and room join/leave events.</li>
+                <li>Built message broadcasting system for multi-user chat rooms.</li>
+                <li>Created media upload pipeline for images, videos, and files stored in S3.</li>
+                <li>Linked media attachments to chat messages with full metadata tracking.</li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="text-lg font-semibold text-white mb-2">Database & Scalability</h4>
+              <ul className="list-disc list-inside space-y-1 text-gray-300">
+                <li>Designed normalized models for Users, Rooms, Messages, and Media.</li>
+                <li>Supported class-based and social room types with join codes for private access.</li>
+                <li>Implemented caching with Redis and connection pooling for scalability.</li>
+                <li>Used RabbitMQ for asynchronous processing and stateless APIs for horizontal scaling.</li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="text-lg font-semibold text-white mb-2">Code Quality & Tooling</h4>
+              <ul className="list-disc list-inside space-y-1 text-gray-300">
+                <li>Used TypeScript end-to-end with modular architecture (controllers, services, repositories).</li>
+                <li>Followed RESTful API best practices with DTOs and centralized error handling.</li>
+                <li>Configured ESLint, Nodemon hot reload, migration scripts, and structured logging.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* GetItDone - Black/White/Gray Theme */}
       <div 
         onMouseEnter={handleGetItDoneHover}
-        className="bg-black/40 backdrop-blur-md rounded-2xl p-8 shadow-2xl border border-white/20 hover:border-white/40 transition-all duration-500 hover:shadow-[0_0_30px_rgba(255,255,255,0.1)] animate-fade-in-up"
+        className="bg-black/40 backdrop-blur-md rounded-2xl p-8 shadow-2xl border border-white/20 hover:border-white/40 transition-all duration-500 hover:shadow-[0_0_30px_rgba(255,255,255,0.1)] animate-fade-in-up animate-delay-100"
       >
         <h3 className="text-3xl font-bold text-white mb-4">GetItDone</h3>
         <p className="text-gray-300 mb-6 leading-relaxed text-lg">
