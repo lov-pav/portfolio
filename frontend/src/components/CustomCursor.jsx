@@ -5,10 +5,32 @@ function CustomCursor() {
   const [trailPosition, setTrailPosition] = useState({ x: 0, y: 0 })
   const [isVisible, setIsVisible] = useState(false)
   const [isHovering, setIsHovering] = useState(false)
+  const [isTouchDevice, setIsTouchDevice] = useState(false)
   const requestRef = useRef()
   const targetRef = useRef({ x: 0, y: 0 })
 
   useEffect(() => {
+    // Check if it's a touch device
+    const checkTouchDevice = () => {
+      const hasTouchScreen = (
+        'ontouchstart' in window ||
+        navigator.maxTouchPoints > 0 ||
+        window.matchMedia('(pointer: coarse)').matches
+      )
+      setIsTouchDevice(hasTouchScreen)
+    }
+
+    checkTouchDevice()
+
+    // Also listen for window resize in case of device orientation change
+    window.addEventListener('resize', checkTouchDevice)
+    return () => window.removeEventListener('resize', checkTouchDevice)
+  }, [])
+
+  useEffect(() => {
+    // Don't set up mouse listeners on touch devices
+    if (isTouchDevice) return
+
     const handleMouseMove = (e) => {
       setPosition({ x: e.clientX, y: e.clientY })
       targetRef.current = { x: e.clientX, y: e.clientY }
@@ -48,9 +70,10 @@ function CustomCursor() {
       document.removeEventListener('mouseover', handleMouseOver)
       cancelAnimationFrame(requestRef.current)
     }
-  }, [isVisible])
+  }, [isVisible, isTouchDevice])
 
-  if (!isVisible) return null
+  // Don't render on touch devices or when not visible
+  if (isTouchDevice || !isVisible) return null
 
   return (
     <>
