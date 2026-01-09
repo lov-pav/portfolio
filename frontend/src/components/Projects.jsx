@@ -182,7 +182,7 @@ function Projects({ setActiveColor }) {
 
         <div
           className={`transition-all duration-500 ease-in-out ${
-            isChatExpanded ? 'max-h-[3200px] opacity-100' : 'max-h-0 opacity-0'
+            isChatExpanded ? 'max-h-[5000px] opacity-100' : 'max-h-0 opacity-0'
           }`}
         >
           <div className="p-8 pt-0 border-t border-white/15 text-gray-200 space-y-8">
