@@ -6,32 +6,46 @@ function Navigation({ activeSection, setActiveSection, activeColor }) {
   ]
 
   return (
-    <nav className="sticky top-5 z-50 flex justify-center pt-5">
-      <div 
-        className="backdrop-blur-md rounded-full px-4 py-2 border shadow-2xl transition-colors duration-500"
-        style={{ 
-          borderColor: `${activeColor}30`, // 30 is hex opacity ~20%
-          backgroundColor: 'rgba(255, 255, 255, 0.05)'
-        }}
-      >
-        <div className="flex gap-1.5">
-          {navItems.map((item) => (
-            <button
-              key={item.id}
-              onClick={() => setActiveSection(item.id)}
-              className={`px-5 py-2 rounded-full transition-all duration-500 text-sm font-medium ${
-                activeSection === item.id
-                  ? 'text-white'
-                  : 'text-gray-300 hover:text-white hover:bg-white/10'
-              }`}
-              style={activeSection === item.id ? {
-                backgroundColor: activeColor,
-                boxShadow: `0 0 20px ${activeColor}80` // 80 is hex opacity 50%
-              } : {}}
-            >
-              {item.label}
-            </button>
-          ))}
+    <nav className="fixed top-0 left-0 right-0 z-40 transition-all duration-300 bg-transparent">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div className="flex items-center justify-between h-16 md:h-20">
+          <a 
+            href="#"
+            onClick={(e) => {
+              e.preventDefault();
+              setActiveSection('about');
+            }}
+            className="text-base md:text-xl font-bold tracking-tight text-white border border-white/20 px-2 md:px-3 py-1 hover:bg-white/10 transition-colors shrink-0"
+          >
+            Portfolio
+          </a>
+          <div className="hidden md:flex items-center space-x-4 lg:space-x-8">
+            {navItems.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => setActiveSection(item.id)}
+                className="text-gray-400 hover:text-white transition-colors relative group text-xs lg:text-sm font-medium tracking-wide uppercase whitespace-nowrap"
+              >
+                {item.label}
+                <span 
+                  className={`absolute -bottom-1 left-0 h-px bg-white transition-all duration-300 ${
+                    activeSection === item.id ? 'w-full' : 'w-0 group-hover:w-full'
+                  }`}
+                  style={activeSection === item.id ? {
+                    backgroundColor: activeColor,
+                    boxShadow: `0 0 10px ${activeColor}`
+                  } : {}}
+                ></span>
+              </button>
+            ))}
+          </div>
+          <button className="md:hidden text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M4 5h16"></path>
+              <path d="M4 12h16"></path>
+              <path d="M4 19h16"></path>
+            </svg>
+          </button>
         </div>
       </div>
     </nav>
