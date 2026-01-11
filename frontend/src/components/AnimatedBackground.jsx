@@ -1,6 +1,22 @@
-import { useEffect, useState, useRef, useCallback } from 'react'
+import { useEffect, useState, useRef, useCallback, useMemo } from 'react'
 import ParticleNetwork from './ParticleNetwork'
 import FloatingShapes from './FloatingShapes'
+
+// Hook to detect mobile devices
+function useIsMobile() {
+  const [isMobile, setIsMobile] = useState(false)
+  
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768 || 'ontouchstart' in window)
+    }
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
+  
+  return isMobile
+}
 
 // Animated gradient orbs that follow mouse with delay
 function GradientOrbs() {
@@ -81,7 +97,7 @@ function GradientOrbs() {
 }
 
 // Animated matrix-like code rain effect
-function CodeRain() {
+function CodeRain({ isMobile }) {
   const canvasRef = useRef(null)
   
   useEffect(() => {
@@ -95,8 +111,10 @@ function CodeRain() {
     const chars = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン<>/{}[]()=+-*&^%$#@!~`|\\;:\'",.<>?'
     const charArray = chars.split('')
     
-    const fontSize = 14
-    const columns = Math.floor(canvas.width / fontSize)
+    // Larger font and fewer columns on mobile for better performance
+    const fontSize = isMobile ? 18 : 14
+    const columnSpacing = isMobile ? 3 : 1 // Skip columns on mobile
+    const columns = Math.floor(canvas.width / (fontSize * columnSpacing))
     const drops = Array(columns).fill(1)
     
     // Color palette matching the portfolio theme
@@ -111,7 +129,7 @@ function CodeRain() {
       
       for (let i = 0; i < drops.length; i++) {
         const char = charArray[Math.floor(Math.random() * charArray.length)]
-        const x = i * fontSize
+        const x = i * fontSize * columnSpacing
         const y = drops[i] * fontSize
         
         // Gradient effect - brighter at the head
@@ -129,7 +147,8 @@ function CodeRain() {
       ctx.globalAlpha = 1
     }
     
-    const interval = setInterval(draw, 50)
+    // Slower interval on mobile
+    const interval = setInterval(draw, isMobile ? 70 : 50)
     
     const handleResize = () => {
       canvas.width = window.innerWidth
@@ -142,7 +161,7 @@ function CodeRain() {
       clearInterval(interval)
       window.removeEventListener('resize', handleResize)
     }
-  }, [])
+  }, [isMobile])
 
   return (
     <canvas 
@@ -239,12 +258,13 @@ function CircuitPattern() {
 // Main animated background component
 function AnimatedBackground() {
   const [isLoaded, setIsLoaded] = useState(false)
+  const isMobile = useIsMobile()
 
   useEffect(() => {
-    // Delay loading heavy components for better initial load
-    const timer = setTimeout(() => setIsLoaded(true), 100)
+    // Faster load on mobile, slight delay on desktop for smooth entry
+    const timer = setTimeout(() => setIsLoaded(true), isMobile ? 50 : 100)
     return () => clearTimeout(timer)
-  }, [])
+  }, [isMobile])
 
   return (
     <div 
@@ -254,27 +274,40 @@ function AnimatedBackground() {
       {/* Base gradient background */}
       <div className="absolute inset-0 bg-gradient-radial" />
       
-      {/* Circuit pattern layer */}
-      <CircuitPattern />
+      {/* Circuit pattern layer - skip on mobile */}
+      {!isMobile && <CircuitPattern />}
       
       {/* Code rain matrix effect */}
-      <CodeRain />
+      <CodeRain isMobile={isMobile} />
       
-      {/* Interactive gradient orbs */}
-      <GradientOrbs />
+      {/* Interactive gradient orbs - only on desktop (mouse-based) */}
+      {!isMobile && <GradientOrbs />}
       
-      {/* 3D floating shapes (Three.js) */}
-      {isLoaded && <FloatingShapes />}
+      {/* Static gradient for mobile */}
+      {isMobile && (
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div 
+            className="gradient-orb gradient-orb-1"
+            style={{ left: '20%', top: '30%' }}
+          />
+          <div 
+            className="gradient-orb gradient-orb-2"
+            style={{ left: '80%', top: '60%' }}
+          />
+        </div>
+      )}
       
-      {/* Particle network (tsParticles) */}
-      {isLoaded && <ParticleNetwork />}
+      {/* 3D floating shapes (Three.js) - only on desktop */}
+      {isLoaded && !isMobile && <FloatingShapes />}
+      
+      {/* Particle network (tsParticles) - only on desktop */}
+      {isLoaded && !isMobile && <ParticleNetwork />}
       
       {/* Dot matrix grid overlay */}
       <DotGrid />
       
       {/* Subtle vignette effect */}
       <div className="absolute inset-0 vignette-overlay pointer-events-none" />
-      
       
       {/* Noise texture overlay */}
       <div className="absolute inset-0 noise-overlay pointer-events-none" />

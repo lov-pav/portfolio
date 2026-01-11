@@ -31,6 +31,27 @@ body {
   font-family: 'JetBrains Mono', monospace;
 }
 
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .font-cyber {
+    letter-spacing: 0.02em;
+  }
+  
+  /* Reduce blur effects on mobile for performance */
+  .gradient-orb {
+    filter: blur(60px);
+  }
+  
+  /* Simplify animations on mobile */
+  .corner-glow {
+    filter: none !important;
+  }
+  
+  .group:hover .corner-glow {
+    filter: none !important;
+  }
+}
+
 html {
   background-color: #0a0a0a;
   overflow-x: hidden;
@@ -202,6 +223,24 @@ html {
   height: 450px;
   background: radial-gradient(circle, rgba(168, 85, 247, 0.1) 0%, transparent 70%);
   animation: orb-pulse-3 12s ease-in-out infinite;
+}
+
+/* Smaller orbs on mobile */
+@media (max-width: 768px) {
+  .gradient-orb-1 {
+    width: 350px;
+    height: 350px;
+  }
+  
+  .gradient-orb-2 {
+    width: 300px;
+    height: 300px;
+  }
+  
+  .gradient-orb-3 {
+    width: 280px;
+    height: 280px;
+  }
 }
 
 @keyframes orb-pulse-1 {
