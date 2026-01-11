@@ -112,8 +112,8 @@ function Projects({ setActiveColor }) {
         <div className="flex items-center justify-center gap-2 mb-4 text-gray-500 text-xs uppercase tracking-widest">
           <span>Portfolio</span>
         </div>
-        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 text-white tracking-tighter">
-          Projects
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 text-white tracking-tighter font-cyber">
+          PROJECTS
         </h1>
         <p className="text-gray-400 text-sm md:text-base lg:text-lg max-w-2xl mx-auto font-light">
           A comprehensive catalog of engineering projects and system architectures.
@@ -160,13 +160,13 @@ function Projects({ setActiveColor }) {
           className="w-full text-left p-8 flex justify-between items-center group"
         >
           <div>
-            <h3
-              className={`text-2xl font-bold transition-colors ${
-                isChatExpanded ? 'text-white' : 'text-white group-hover:text-gray-200'
-              }`}
-            >
-              ChatPlusBot
-            </h3>
+<h3
+                              className={`text-2xl font-bold transition-colors font-cyber ${
+                                isChatExpanded ? 'text-white' : 'text-white group-hover:text-gray-200'
+                              }`}
+                            >
+                              ChatPlusBot
+                            </h3>
             <p className="text-gray-400 mt-2">
               Real-time collaborative chat application with AI integration
             </p>
@@ -390,7 +390,7 @@ function Projects({ setActiveColor }) {
           className="w-full text-left p-8 flex justify-between items-center group"
         >
           <div>
-            <h3 className={`text-2xl font-bold transition-colors ${
+            <h3 className={`text-2xl font-bold transition-colors font-cyber ${
               isMoodCurveExpanded ? 'text-emerald-400' : 'text-white group-hover:text-emerald-400'
             }`}>
               MoodCurve
@@ -562,7 +562,7 @@ function Projects({ setActiveColor }) {
           className="w-full text-left p-8 flex justify-between items-center group"
         >
           <div>
-            <h3 className="text-2xl font-bold text-white group-hover:text-gray-100 transition-colors">
+            <h3 className="text-2xl font-bold text-white group-hover:text-gray-100 transition-colors font-cyber">
               GetItDone
             </h3>
             <p className="text-gray-400 mt-2">
@@ -739,7 +739,7 @@ function Projects({ setActiveColor }) {
           className="w-full text-left p-8 flex justify-between items-center group"
         >
           <div>
-            <h3 className={`text-2xl font-bold transition-colors ${
+            <h3 className={`text-2xl font-bold transition-colors font-cyber ${
               isDegreeExpanded ? 'text-orange-500' : 'text-white group-hover:text-orange-400'
             }`}>
               Degree Coordinator

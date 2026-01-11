@@ -104,8 +104,8 @@ function Experience() {
           </svg>
           <span>Timeline</span>
         </div>
-        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 text-white tracking-tighter">
-          Experience & Education
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 text-white tracking-tighter font-cyber">
+          EXPERIENCE
         </h1>
         <p className="text-gray-400 text-sm md:text-base lg:text-lg max-w-2xl mx-auto font-light">
           A timeline of professional roles, education, and achievements.
@@ -131,7 +131,7 @@ function Experience() {
               {/* Card */}
               <div className={`flex ${item.side === 'left' ? 'justify-start pr-[52%]' : 'justify-end pl-[52%]'}`}>
                 <div 
-                  className="relative w-full max-w-lg bg-[#111] border border-white/10 p-6 animate-fade-in-up"
+                  className="relative w-full max-w-lg bg-[#111]/80 border border-white/10 p-6 animate-fade-in-up cyber-card corner-accents"
                   style={{ animationDelay: `${index * 150}ms` }}
                 >
                   {/* Corner decorations */}
@@ -141,7 +141,7 @@ function Experience() {
                   {/* Date with icon */}
                   <div className="flex items-center gap-2 mb-3 text-gray-500">
                     {getIcon(item.type)}
-                    <span className="text-xs font-mono tracking-wider">{item.period}</span>
+                    <span className="text-xs font-mono-cyber tracking-wider">{item.period}</span>
                   </div>
 
                   {/* Title */}
@@ -156,7 +156,7 @@ function Experience() {
 
                   {/* GPA Badge (if exists) */}
                   {item.gpa && (
-                    <div className="inline-block px-3 py-1 mb-4 text-sm font-mono text-white bg-white/10 border border-white/20 rounded">
+                    <div className="inline-block px-3 py-1 mb-4 text-xs font-mono-cyber text-[#ff10f0] bg-[#ff10f0]/10 border border-[#ff10f0]/30">
                       GPA: {item.gpa}
                     </div>
                   )}

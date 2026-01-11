@@ -4,7 +4,7 @@ import Projects from './components/Projects'
 import Experience from './components/Experience'
 import Navigation from './components/Navigation'
 import CustomCursor from './components/CustomCursor'
-import Starfield from './components/Starfield'
+import AnimatedBackground from './components/AnimatedBackground'
 
 function App() {
   // Initialize from URL hash
@@ -46,13 +46,11 @@ function App() {
       {/* Custom cursor - highest z-index */}
       <CustomCursor />
       
-      {/* Starfield background - z-index: 1 */}
-      <Starfield />
+      {/* Animated background - z-index: 1 */}
+      <AnimatedBackground />
       
       {/* Main content wrapper - z-index: 2+ */}
       <div className="min-h-screen relative" style={{ zIndex: 2 }}>
-        {/* Grid overlay on top of stars */}
-        <div className="grid-background" style={{ zIndex: 3 }}></div>
         
         <Navigation 
           activeSection={activeSection} 

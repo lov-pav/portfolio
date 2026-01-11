@@ -24,9 +24,9 @@ function Navigation({ activeSection, setActiveSection, activeColor }) {
               e.preventDefault();
               handleNavClick('about');
             }}
-            className="text-base md:text-xl font-bold tracking-tight text-white border border-white/20 px-2 md:px-3 py-1 hover:bg-white/10 transition-colors shrink-0"
+            className="text-base md:text-xl font-cyber font-bold tracking-tight text-white border border-white/20 px-3 md:px-4 py-1.5 hover:border-[#ff10f0] hover:text-[#ff10f0] hover:shadow-[0_0_15px_rgba(255,16,240,0.3)] transition-all duration-300 shrink-0"
           >
-            Portfolio
+            LP_
           </a>
           
           {/* Desktop Navigation */}
@@ -35,17 +35,20 @@ function Navigation({ activeSection, setActiveSection, activeColor }) {
               <button
                 key={item.id}
                 onClick={() => handleNavClick(item.id)}
-                className="text-gray-400 hover:text-white transition-colors relative group text-xs lg:text-sm font-medium tracking-wide uppercase whitespace-nowrap"
+                className="text-gray-400 hover:text-white transition-all duration-300 relative group text-xs lg:text-sm font-mono-cyber tracking-wider uppercase whitespace-nowrap"
               >
-                {item.label}
+                <span className="relative z-10">{item.label}</span>
                 <span 
-                  className={`absolute -bottom-1 left-0 h-px bg-white transition-all duration-300 ${
+                  className={`absolute -bottom-1 left-0 h-[2px] transition-all duration-300 ${
                     activeSection === item.id ? 'w-full' : 'w-0 group-hover:w-full'
                   }`}
                   style={activeSection === item.id ? {
                     backgroundColor: activeColor,
-                    boxShadow: `0 0 10px ${activeColor}`
-                  } : {}}
+                    boxShadow: `0 0 10px ${activeColor}, 0 0 20px ${activeColor}`
+                  } : {
+                    backgroundColor: '#ff10f0',
+                    boxShadow: '0 0 10px #ff10f0'
+                  }}
                 ></span>
               </button>
             ))}

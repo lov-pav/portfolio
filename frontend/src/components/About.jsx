@@ -99,6 +99,7 @@ function About() {
       bgLight: 'bg-purple-500/10',
       border: 'border-purple-500/30',
       hover: 'hover:border-purple-500/50 hover:bg-purple-500/5',
+      hex: '#a855f7',
     },
     cyan: {
       text: 'text-cyan-400',
@@ -106,6 +107,7 @@ function About() {
       bgLight: 'bg-cyan-500/10',
       border: 'border-cyan-500/30',
       hover: 'hover:border-cyan-500/50 hover:bg-cyan-500/5',
+      hex: '#06b6d4',
     },
     emerald: {
       text: 'text-emerald-400',
@@ -113,6 +115,7 @@ function About() {
       bgLight: 'bg-emerald-500/10',
       border: 'border-emerald-500/30',
       hover: 'hover:border-emerald-500/50 hover:bg-emerald-500/5',
+      hex: '#10b981',
     },
     orange: {
       text: 'text-orange-400',
@@ -120,6 +123,7 @@ function About() {
       bgLight: 'bg-orange-500/10',
       border: 'border-orange-500/30',
       hover: 'hover:border-orange-500/50 hover:bg-orange-500/5',
+      hex: '#f97316',
     },
   }
 
@@ -133,14 +137,14 @@ function About() {
       {/* Hero Section */}
       <section className="text-center mb-20 md:mb-28">
         <div className="mb-4 inline-block animate-fade-in-up">
-          <span className="px-3 py-1 text-sm font-mono text-gray-400 border border-white/10 rounded-full bg-white/5 backdrop-blur-sm">
-            AVAILABLE FOR HIRE
+          <span className="status-online px-4 py-1.5 text-xs font-mono-cyber text-emerald-400 border border-emerald-500/30 bg-emerald-500/10 backdrop-blur-sm uppercase tracking-wider">
+            Available for Hire
           </span>
         </div>
         
-        <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter mb-6 md:mb-8 animate-fade-in-up">
-          <span className="block text-white">LOVE</span>
-          <span className="block text-white">PAVLICEK</span>
+        <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter mb-6 md:mb-8 animate-fade-in-up font-cyber">
+          <span className="block text-white hover:neon-text-pink transition-all duration-300">LOVE</span>
+          <span className="block text-white hover:neon-text-cyan transition-all duration-300">PAVLICEK</span>
         </h1>
         
         <h2 className="text-xl md:text-2xl font-light text-gray-300 mb-12 max-w-2xl mx-auto leading-relaxed animate-fade-in-up animate-delay-100">
@@ -152,15 +156,14 @@ function About() {
             href="https://www.linkedin.com/in/pavliceklove/" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="group relative px-8 py-4 bg-white text-black font-medium overflow-hidden transition-all hover:pr-12"
+            className="btn-neon px-8 py-4 font-cyber text-sm tracking-wider"
           >
-            <span className="relative z-10">LINKEDIN</span>
-            <span className="absolute right-4 top-1/2 transform -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all duration-300">→</span>
+            LINKEDIN
           </a>
           <a 
             href="/resume.pdf" 
             download
-            className="group px-8 py-4 bg-transparent border border-white/20 text-white font-medium hover:bg-white/5 transition-all flex items-center gap-2"
+            className="btn-neon-outline px-8 py-4 font-cyber text-sm tracking-wider flex items-center gap-3"
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
@@ -181,8 +184,8 @@ function About() {
               <span>About</span>
             </div>
             
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-white mb-6 md:mb-8">
-              Full-Stack Developer & CS Graduate
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-white mb-6 md:mb-8 font-cyber">
+              Full-Stack Developer
             </h2>
             
             <div className="space-y-4 md:space-y-6 text-sm md:text-base lg:text-lg text-gray-400 font-light leading-relaxed">
@@ -199,12 +202,12 @@ function About() {
             {/* Stats Grid */}
             <div className="grid grid-cols-2 gap-3 md:gap-4 lg:gap-8 pt-6 md:pt-8 border-t border-white/10">
               <div>
-                <div className="text-2xl md:text-3xl font-bold text-white mb-1 font-mono">4.0<span className="text-xs md:text-sm text-gray-500 ml-0.5 md:ml-1">/ 4.0</span></div>
-                <div className="text-[10px] md:text-xs font-mono uppercase tracking-widest text-gray-500">GPA</div>
+                <div className="text-2xl md:text-3xl font-bold text-white mb-1 font-cyber">4.0<span className="text-xs md:text-sm text-gray-500 ml-0.5 md:ml-1">/ 4.0</span></div>
+                <div className="text-[10px] md:text-xs font-mono-cyber uppercase tracking-widest text-gray-500">GPA</div>
               </div>
               <div>
-                <div className="text-2xl md:text-3xl font-bold text-white mb-1 font-mono">4</div>
-                <div className="text-[10px] md:text-xs font-mono uppercase tracking-widest text-gray-500">Projects</div>
+                <div className="text-2xl md:text-3xl font-bold text-white mb-1 font-cyber">4</div>
+                <div className="text-[10px] md:text-xs font-mono-cyber uppercase tracking-widest text-gray-500">Projects</div>
               </div>
             </div>
           </div>
@@ -265,7 +268,7 @@ function About() {
           </svg>
           <span>Tech_Stack</span>
         </div>
-        <h3 className="text-2xl sm:text-3xl md:text-5xl font-bold text-white mb-4 tracking-tighter">
+        <h3 className="text-2xl sm:text-3xl md:text-5xl font-bold text-white mb-4 tracking-tighter font-cyber">
           TECHNICAL ARSENAL
         </h3>
         <p className="text-gray-500 text-sm mb-10 md:mb-16">Click on any technology to see where it was used.</p>
@@ -274,7 +277,21 @@ function About() {
           {Object.entries(skillCategories).map(([key, category]) => {
             const colors = colorClasses[category.color]
             return (
-              <div key={key} className="relative p-4 md:p-6 lg:p-8 bg-[#111] border transition-all duration-300 border-white/10 hover:border-white/20">
+              <div 
+              key={key} 
+              className="group relative p-4 md:p-6 lg:p-8 bg-[#111]/80 border transition-all duration-300 border-white/10 hover:border-white/20 cyber-card"
+              style={{ '--corner-color': colors.hex }}
+            >
+                {/* Dynamic color corners */}
+                <div 
+                  className="absolute top-[-1px] left-[-1px] w-3 h-3 border-t-2 border-l-2 transition-all duration-300 group-hover:w-5 group-hover:h-5 corner-glow"
+                  style={{ borderColor: colors.hex, color: colors.hex }}
+                />
+                <div 
+                  className="absolute bottom-[-1px] right-[-1px] w-3 h-3 border-b-2 border-r-2 transition-all duration-300 group-hover:w-5 group-hover:h-5 corner-glow"
+                  style={{ borderColor: colors.hex, color: colors.hex }}
+                />
+                
                 <div className="flex justify-between items-start mb-4 md:mb-6">
                   <div className="flex items-center gap-2 md:gap-4">
                     <div className={`p-2 md:p-3 bg-white/5 border border-white/10 rounded-sm ${colors.text} shrink-0`}>
@@ -317,9 +334,6 @@ function About() {
                     )
                   })}
                 </div>
-                
-                <div className="absolute top-0 right-0 w-3 h-3 border-t border-r border-white/20"></div>
-                <div className="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-white/20"></div>
               </div>
             )
           })}
